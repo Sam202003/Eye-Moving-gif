@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Eye</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+        /* background-color: #fff; */
+      background-color: #ffda20;
+
+    }
+    .eyes {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      width: 100%;
+    }
+    .eye {
+      width: 120px;
+      height: 160px;
+      border-radius: 50%;
+      background-color: #fff;
+      display: inline-block;
+      position: relative;
+      margin: 0 40px;
+    }
+    .ball {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #000;
+      border: 15px solid #333;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .shape img {
+      width: 35%;
+      height:10%;
+    }
+    .text{
+        text-align: center;
+        margin-top: 50px;
+        font-family:cursive;
+    }
+  </style>
+  <body>
+    <h1 class="text">Yay! This Eyes are watching uhh 👀😅</h1>
+    <div class="eyes">
+      <div class="eye">
+        <div class="ball"></div>
+      </div>
+      <div class="eye">
+        <div class="ball"></div>
+      </div>
+      <div class="shape">
+        <img
+          src="smiley.png" />
+      </div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  let balls = document.getElementsByClassName("ball");
+  document.onmousemove = function () {
+    let x = (event.clientX * 100) / window.innerWidth + "%";
+    let y = (event.clientY * 100) / window.innerHeight + "%";
+
+    for (let i = 0; i < 2; i++) {
+      balls[i].style.left = x;
+      balls[i].style.top = y;
+      balls[i].style.transform = "translate(-" + x + ",-" + y + ")";
+    }
+  };
+</script>
